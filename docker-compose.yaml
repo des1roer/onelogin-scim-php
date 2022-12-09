@@ -1,0 +1,32 @@
+version: '3'
+
+networks:
+  onelogin-network:
+    driver: "bridge"
+
+services:
+  nginx:
+    container_name: onelogin_nginx
+    image: nginx:1.17-alpine
+    ports:
+      - "${NGINX_EXTERNAL_PORT}:80"
+    volumes:
+#      - ./:/
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - onelogin-network
+
+  app:
+    container_name: onelogin_app
+    build:
+      context:    .
+      dockerfile: Dockerfile
+    environment:
+      PHP_IDE_CONFIG: serverName=onelogin
+    working_dir: /app
+    volumes:
+      - .:/app
+    networks:
+      - onelogin-network

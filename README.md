@@ -1,3 +1,11 @@
+Установка
+
+```
+make install
+make
+composer install
+```
+
 # onelogin-scim-php
 
 A simple PHP API built using [Slim](http://www.slimframework.com/) that handles and responds to all of the SCIM requests made by OneLogin for user provisioning.
