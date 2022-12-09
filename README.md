@@ -2,9 +2,14 @@
 
 ```
 make install
+make up
 make
 composer install
 ```
+
+http://localhost:8080/jwt
+
+see https://dev.to/cherif_b/using-docker-for-slim-4-application-development-environment-1opm
 
 # onelogin-scim-php
 
